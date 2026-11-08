@@ -12,6 +12,10 @@
       background:linear-gradient(180deg,#5bb9f2 0%,#8bcef4 40%,#d8effb 62%,#b3d77e 63%,#65aa39 100%);
       isolation:isolate;
     }
+  .desktop-icon {
+    text-decoration: none;
+  }
+
     .wallpaper { position:absolute; inset:0; overflow:hidden; z-index:-1; background:linear-gradient(180deg,transparent 0 57%,rgba(255,255,255,.12) 57.2%,transparent 58%) }
     .sun-glow { position:absolute; width:48vw;height:48vw;max-width:720px;max-height:720px;right:-5%;top:-30%;border-radius:50%;background:radial-gradient(circle,rgba(255,255,255,.52),rgba(255,255,255,0) 68%) }
     .cloud { position:absolute; width:150px;height:31px;border-radius:50px;background:rgba(255,255,255,.83);filter:drop-shadow(0 4px 8px rgba(69,134,166,.12));opacity:.9 }

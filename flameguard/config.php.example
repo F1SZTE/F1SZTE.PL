@@ -1,0 +1,12 @@
+<?php
+return [
+    'database' => [
+        'host' => 'localhost',
+        'name' => 'HOSTLINE_DATABASE_NAME',
+        'user' => 'HOSTLINE_DATABASE_USER',
+        'password' => 'HOSTLINE_DATABASE_PASSWORD',
+        'charset' => 'utf8mb4',
+    ],
+    // Set a random value of at least 32 characters before opening setup.php.
+    'setup_key' => '',
+];

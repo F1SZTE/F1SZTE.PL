@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#dceaff">
+  <title>FlameGuard — Operations</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <main class="app">
+    <header class="topbar">
+      <a class="brand" href="flameguard.html" aria-label="FlameGuard dashboard"><span class="brand-mark" aria-hidden="true">✦</span><span>FLAMEGUARD <span class="brand-suffix">TRAVEL</span></span></a>
+      <nav class="nav" aria-label="Main navigation"><a href="flameguard.html">Dashboard</a><a href="bookings.html">My Bookings</a><a href="support.html">Support</a><a class="active" href="admin.html" aria-current="page">Operations</a></nav>
+      <div class="top-actions"><select class="language-select" data-language-select aria-label="Language"><option value="en">English</option><option value="pl">Polski</option><option value="cs">Čeština</option><option value="es">Español</option></select><span class="profile-name" data-session-name></span></div>
+    </header>
+    <section class="hero page-hero"><div><h1>Operations</h1><p>Publish schedules and manage FlameGuard services.</p></div></section>
+    <section class="admin-grid" id="admin-content" hidden>
+      <form class="support-panel admin-form" id="trip-form">
+        <div class="page-heading"><div><h2>Publish a service</h2><p>Published services appear in the public departure search.</p></div></div>
+        <label>Travel type<select name="travel_type" id="admin-travel-type" required><option value="flight">Flight</option><option value="train">Train</option></select></label>
+        <div class="admin-form-row"><label>From<select name="origin_code" id="admin-origin" required></select></label><label>To<select name="destination_code" id="admin-destination" required></select></label></div>
+        <label>Operator<input name="operator_name" id="admin-operator" maxlength="80" value="FlameGuard Air" required></label>
+        <div class="admin-form-row"><label>Departure date and time<input type="datetime-local" name="departure_at" id="admin-departure" required></label><label>Arrival date and time<input type="datetime-local" name="arrival_at" id="admin-arrival" required></label></div>
+        <div class="admin-form-row"><label>Fare (RP points)<input type="number" name="fare_points" min="0" max="1000000" step="1" value="450" required></label><label>Seats<input type="number" name="seat_capacity" min="1" max="300" step="1" value="30" required></label></div>
+        <button class="primary-btn" type="submit">Publish service</button>
+        <p class="auth-message" id="admin-message" role="status" aria-live="polite"></p>
+      </form>
+      <section class="support-panel admin-schedules">
+        <div class="page-heading"><div><h2>Published services</h2><p>Seat bookings are shared and updated immediately.</p></div></div>
+        <div class="table-scroll"><table><thead><tr><th>Service</th><th>Departure</th><th>Seats booked</th><th>Status</th><th></th></tr></thead><tbody id="admin-trips"></tbody></table></div>
+        <p class="booking-empty" id="admin-empty" hidden>No services have been published.</p>
+      </section>
+    </section>
+    <section class="support-panel" id="admin-denied" hidden><h2>Administrator sign-in required</h2><p>Sign in with the administrator account created during setup.</p><a class="primary-link" href="flameguard.html#login">Sign in</a></section>
+    <footer class="footer"><span>© 2026 FlameGuard Travel · RP air and rail</span><span><a href="flameguard.html">Dashboard</a> · <a href="bookings.html">My bookings</a></span></footer>
+  </main>
+  <script src="js/i18n.js" defer></script>
+  <script src="js/admin.js" defer></script>
+</body>
+</html>

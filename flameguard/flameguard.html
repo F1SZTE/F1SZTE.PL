@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#dceaff">
+  <title>FlameGuard — Air &amp; rail tickets</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <main class="app">
+    <header class="topbar">
+      <a class="brand" href="flameguard.html" aria-label="FlameGuard travel dashboard">
+        <span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M3 14.5 21 4l-7 16-3.2-6.2L3 14.5Z" fill="currentColor"/><path d="m10.8 13.8 4.8-4.5" stroke="#d7efff" stroke-width="1.5" stroke-linecap="round"/></svg></span>
+        <span>FLAMEGUARD <span style="font-weight:500;color:#758196">TRAVEL</span></span>
+      </a>
+      <nav class="nav" aria-label="Main navigation">
+        <a class="active" href="flameguard.html" aria-current="page">Dashboard</a>
+        <a href="bookings.html">My Bookings</a>
+        <a href="support.html">Support</a>
+      </nav>
+      <div class="top-actions"><select class="language-select" data-language-select aria-label="Language"><option value="en">English</option><option value="pl">Polski</option><option value="cs">Čeština</option><option value="es">Español</option></select>
+        <a class="admin-link" data-admin-link href="admin.html" hidden>Admin</a>
+        <span class="profile-name" data-session-name hidden></span>
+        <button class="account-button" id="account-button" type="button">Sign in</button>
+        <button class="account-button secondary" id="logout-button" type="button" hidden>Sign out</button>
+      </div>
+    </header>
+
+    <section class="hero" aria-labelledby="page-title">
+      <div><h1 id="page-title">Dashboard</h1><p>Travel by air or rail — choose your next journey.</p></div>
+      <label class="search"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="10.8" cy="10.8" r="6.8"/><path d="m16 16 4 4" stroke-linecap="round"/></svg><input type="search" placeholder="Search routes, airports, stations or trains" aria-label="Search routes, airports, stations or trains"></label>
+    </section>
+
+    <section class="layout" aria-label="Flight and train dashboard">
+      <div class="column">
+        <article class="card flight-card">
+          <div class="travel-tabs" role="tablist" aria-label="Choose travel type">
+            <button class="travel-tab active" type="button" role="tab" aria-selected="true" data-travel-mode="flight">✈ Flights</button>
+            <button class="travel-tab" type="button" role="tab" aria-selected="false" data-travel-mode="train">🚆 Trains</button>
+          </div>
+          <div class="overline"><span>From</span><span>To</span></div>
+          <div class="route">
+            <div><div class="city-code" id="from-code">PRG</div><div class="city-name" id="from-city">Praha</div></div>
+            <button class="route-swap" id="swap-route" type="button" aria-label="Swap departure and destination"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 8h15l-3-3M20 16H5l3 3" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+            <div style="text-align:right"><div class="city-code" id="to-code">STI</div><div class="city-name" id="to-city">Stilton</div></div>
+          </div>
+          <div class="destination-picker">
+            <label><span>From</span><select id="origin-select" aria-label="From"></select></label>
+            <label><span>To</span><select id="destination-select" aria-label="To"></select></label>
+          </div>
+          <div class="route-dates">
+            <div><div class="date-label">Departure date</div><div class="date-value"><input id="depart-date" type="date" aria-label="Departure date" style="width:100%;border:0;background:transparent;color:inherit;font:inherit"></div></div>
+            <div class="fare-currency"><div class="date-label">Fare currency</div><div class="date-value">RP points</div></div>
+          </div>
+          <button class="primary-btn" id="search-travel" type="button">Search flights</button>
+        </article>
+
+        <article class="card upcoming">
+          <div><h2 class="section-title" id="upcoming-title">Your account</h2><p class="section-sub" id="account-summary">Sign in to manage your FlameGuard journeys.</p></div>
+          <div class="flight-mini">
+            <div><div class="mini-code" id="upcoming-from-code">FG</div><div class="mini-city" id="upcoming-from-city">Roleplay travel</div></div>
+            <span class="mini-plane" id="upcoming-icon" aria-hidden="true">✦</span>
+            <div style="text-align:right"><div class="mini-code" id="upcoming-to-code">RP</div><div class="mini-city" id="upcoming-to-city">Air and rail</div></div>
+          </div>
+          <div class="business"><span id="upcoming-class">FlameGuard account</span><a class="price" href="bookings.html">My bookings</a></div>
+        </article>
+      </div>
+
+      <div class="column">
+        <article class="card map-card" aria-label="Flight and train route map">
+          <div class="map-top"><div><h2 class="section-title" id="journey-title">Your journey</h2><p class="section-sub" id="journey-details">Choose a route and date to view departures.</p></div><span class="route-chip" id="journey-status">FlameGuard Travel</span></div>
+          <svg class="map-art" viewBox="0 0 620 280" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+            <defs><linearGradient id="sea" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#edf7f3"/><stop offset="1" stop-color="#e5f1eb"/></linearGradient><filter id="glow"><feGaussianBlur stdDeviation="6" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs>
+            <rect width="620" height="280" fill="url(#sea)"/>
+            <g fill="#d0dfd6" opacity=".9">
+              <path d="m41 53 28-16 42 4 22 13-3 17-24 9-8 14-23 3-10 19-19 5-12-17-2-23-17-6 4-17 23-5Zm59 70 22-9 20 12 9 22-8 25-9 30-15 17-12-13-1-26-12-21 6-16Z"/>
+              <path d="m214 58 20-15 36 4 20 11 35-4 24 11 4 13-19 11-21-7-20 13-13 19-25 8-10 20-25-8-10-19-21-8 5-23-10-13 10-13 20 2Zm42 94 25-13 18 10 10 25-6 33-18 35-17 3-11-26-11-17 1-29-11-14 20-7Z"/>
+              <path d="m395 57 23-10 25 7 6 15-20 14-23-4-15-10 4-12Zm41 35 29-19 41 6 32 20-10 16-29 7-11 20-23 6-18 15-16-7-1-22-16-11 6-21 16-10Zm21 76 25-12 25 9 18 22-9 28-24 19-24-10-12-25 1-31Z"/>
+            </g>
+            <path class="route-line" d="M111 111 C230 58 327 68 476 105" fill="none" stroke="#63b979" stroke-width="2.3" stroke-linecap="round"/>
+            <circle cx="111" cy="111" r="7" fill="#fff" stroke="#59b778" stroke-width="3"/><circle cx="476" cy="105" r="7" fill="#fff" stroke="#59b778" stroke-width="3"/>
+            <g filter="url(#glow)" transform="translate(287 62) rotate(13)"><circle cx="15" cy="15" r="14" fill="#56b970"/><path d="m8 16 5 5 10-12" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></g>
+            <g fill="#607166" font-family="system-ui,sans-serif" font-size="10"><text id="map-from-label" x="72" y="137">New York</text><text id="map-to-label" x="455" y="132">Milan</text></g>
+          </svg>
+          <div class="map-caption"><span><span id="journey-metric-label">Selected route</span><br><strong id="journey-metric" style="color:#526274">—</strong></span><span id="journey-progress" class="route-chip">RP travel service</span></div>
+        </article>
+
+        <article class="card table-card">
+          <div class="table-head"><div><h2 class="section-title" id="table-title">Available departures</h2><p class="section-sub" id="table-subtitle">Choose a date to find a scheduled service.</p></div></div>
+          <div class="table-scroll"><table>
+            <thead><tr><th id="operator-heading">Operator</th><th>Departure</th><th>Arrival</th><th>Seats</th><th>Fare</th><th></th></tr></thead>
+            <tbody id="route-results"></tbody>
+          </table></div>
+          <p class="booking-empty" id="routes-empty">Choose your route and date, then search for departures.</p>
+        </article>
+      </div>
+
+      <div class="column seat-column">
+        <article class="card seat-card">
+          <div class="seat-header"><div><h2 class="section-title" id="seat-title">Select seats</h2><p class="section-sub" id="seat-subtitle">Choose a seat for your journey</p></div><button class="info-btn" type="button" aria-label="Seat information" title="Green seats are available">i</button></div>
+          <div class="seat-map">
+            <span class="cabin-label" id="cabin-primary">Available seats</span>
+            <div class="seat-grid" id="seat-grid" aria-label="Seat map"></div>
+            <span class="cabin-label" id="cabin-secondary" style="margin-top:12px">Choose a service to load seats</span>
+          </div>
+          <div class="seat-legend"><span class="legend-item"><span class="legend-dot"></span>Available</span><span class="legend-item"><span class="legend-dot chosen"></span>Selected</span><span class="legend-item"><span class="legend-dot taken"></span>Occupied</span></div>
+          <div class="seat-summary"><span><strong id="seat-number">—</strong> · <span id="seat-cabin-summary">Seat</span></span><span>Passengers &nbsp; <strong>1</strong></span><span>Class &nbsp; <strong id="seat-class-summary">Standard</strong></span></div>
+          <button class="checkout" id="checkout" type="button" disabled><span>Continue</span><span id="checkout-price">—</span></button>
+        </article>
+        <article class="card upcoming" style="padding:14px 15px">
+          <div class="overline"><span>Travel tip</span><span class="tag">Good to know</span></div>
+          <p class="section-sub" id="travel-tip" style="margin-top:8px;line-height:1.6">Schedules and seats are managed by the FlameGuard operations team.</p>
+        </article>
+      </div>
+    </section>
+    <footer class="footer"><span>© 2026 FlameGuard Travel · RP air and rail</span><span><a href="support.html">Help centre</a> &nbsp;·&nbsp; Fares shown in RP points</span></footer>
+  </main>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <dialog class="auth-dialog" id="auth-dialog" aria-labelledby="auth-title">
+    <div class="auth-dialog-head"><div><p class="eyebrow">FLAMEGUARD ACCOUNT</p><h2 id="auth-title">Sign in or create an account</h2></div><button type="button" class="auth-close" id="auth-close" aria-label="Close">×</button></div>
+    <div class="auth-tabs"><button type="button" class="auth-tab active" data-auth-tab="login">Sign in</button><button type="button" class="auth-tab" data-auth-tab="register">Create account</button></div>
+    <form id="login-form" class="auth-form">
+      <label>Username<input name="username" minlength="3" maxlength="24" autocomplete="username" required></label>
+      <label>Password<input name="password" type="password" autocomplete="current-password" required></label>
+      <button class="primary-btn" type="submit">Sign in</button>
+    </form>
+    <form id="register-form" class="auth-form" hidden>
+      <label>Display name<input name="display_name" minlength="2" maxlength="80" autocomplete="name" required></label>
+      <label>Username<input name="username" minlength="3" maxlength="24" pattern="[A-Za-z0-9_]+" autocomplete="username" required></label>
+      <label>Password<input name="password" type="password" minlength="12" maxlength="200" autocomplete="new-password" required><small>Use at least 12 characters. No email address is needed.</small></label>
+      <button class="primary-btn" type="submit">Create account</button>
+    </form>
+    <p class="auth-message" id="auth-message" role="status" aria-live="polite"></p>
+  </dialog>
+  <script src="js/i18n.js" defer></script>
+  <script src="js/app.js" defer></script>
+</body>
+</html>
+
+
+
+

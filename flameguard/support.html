@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#dceaff">
+  <title>FlameGuard — Support</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <main class="app">
+    <header class="topbar">
+      <a class="brand" href="flameguard.html" aria-label="FlameGuard dashboard"><span class="brand-mark" aria-hidden="true">✦</span><span>FLAMEGUARD <span class="brand-suffix">TRAVEL</span></span></a>
+      <nav class="nav" aria-label="Main navigation">
+        <a href="flameguard.html">Dashboard</a><a href="bookings.html">My Bookings</a><a class="active" href="support.html" aria-current="page">Support</a>
+      </nav>
+      <div class="top-actions"><select class="language-select" data-language-select aria-label="Language"><option value="en">English</option><option value="pl">Polski</option><option value="cs">Čeština</option><option value="es">Español</option></select><a class="admin-link" data-admin-link href="admin.html" hidden>Admin</a><span class="profile-name" data-session-name></span></div>
+    </header>
+
+    <section class="hero page-hero" aria-labelledby="page-title">
+      <div><h1 id="page-title">Support</h1><p>Answers for your FlameGuard air and rail journeys.</p></div>
+      <label class="search support-search"><span aria-hidden="true">⌕</span><input id="faq-search" type="search" placeholder="Search help topics" aria-label="Search help topics"></label>
+    </section>
+
+    <section class="support-page" aria-label="Help centre">
+      <article class="support-panel">
+        <div class="page-heading"><div><h2>Frequently asked questions</h2><p>Search a topic or open a question to read more.</p></div><span class="file-count" id="faq-count">5 topics</span></div>
+        <div class="faq-list" id="faq-list">
+          <details class="faq-item" data-faq><summary>Can I choose between flights and trains?</summary><p>Yes. Select Flights or Trains on the dashboard to see published FlameGuard services.</p></details>
+          <details class="faq-item" data-faq><summary>How do I make a reservation?</summary><p>Create an account, choose an available service and seat, then confirm the reservation. It will appear under My Bookings.</p></details>
+          <details class="faq-item" data-faq><summary>How do I choose a seat?</summary><p>Search for a service, select it from the results, then choose any available seat on the seat map.</p></details>
+          <details class="faq-item" data-faq><summary>Where can I get help with an RP trip?</summary><p>Contact the FlameGuard team through the official channel for your roleplay community or server.</p></details>
+          <details class="faq-item" data-faq><summary>What does the fare mean?</summary><p>Fares are FlameGuard roleplay points. The website does not accept real payments.</p></details>
+        </div>
+        <p class="faq-empty" id="faq-empty" hidden>No help topics match your search.</p>
+      </article>
+      <aside class="support-contact">
+        <span class="support-contact-icon" aria-hidden="true">✦</span>
+        <p class="eyebrow">FlameGuard team</p>
+        <h2>Need help with your RP journey?</h2>
+        <p>For roleplay bookings or service questions, reach the FlameGuard team through your server's official community channel.</p>
+        <a class="primary-link" href="flameguard.html">Back to dashboard <span aria-hidden="true">→</span></a>
+      </aside>
+    </section>
+    <footer class="footer"><span>© 2026 FlameGuard Travel · RP air and rail</span><span><a href="bookings.html">My bookings</a> · <a href="flameguard.html">Dashboard</a></span></footer>
+  </main>
+  <script src="js/i18n.js" defer></script>
+  <script src="js/support.js" defer></script>
+</body>
+</html>
+
+

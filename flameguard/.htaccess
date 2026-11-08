@@ -1,0 +1,12 @@
+Options -Indexes
+AddDefaultCharset UTF-8
+
+<FilesMatch "^(config\.php|config\.php\.example|database\.sql|README\.md)$">
+  Require all denied
+</FilesMatch>
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteCond %{HTTPS} !=on
+  RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
+</IfModule>

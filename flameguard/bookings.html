@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#dceaff">
+  <title>FlameGuard — My bookings</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <main class="app">
+    <header class="topbar">
+      <a class="brand" href="flameguard.html" aria-label="FlameGuard dashboard"><span class="brand-mark" aria-hidden="true">✦</span><span>FLAMEGUARD <span class="brand-suffix">TRAVEL</span></span></a>
+      <nav class="nav" aria-label="Main navigation">
+        <a href="flameguard.html">Dashboard</a><a class="active" href="bookings.html" aria-current="page">My Bookings</a><a href="support.html">Support</a>
+      </nav>
+      <div class="top-actions"><select class="language-select" data-language-select aria-label="Language"><option value="en">English</option><option value="pl">Polski</option><option value="cs">Čeština</option><option value="es">Español</option></select><a class="admin-link" data-admin-link href="admin.html" hidden>Admin</a><span class="profile-name" data-session-name hidden></span><a class="account-button" id="account-button" href="flameguard.html#login">Sign in</a><button class="account-button secondary" id="logout-button" type="button" hidden>Sign out</button></div>
+    </header>
+
+    <section class="hero page-hero" aria-labelledby="page-title">
+      <div><h1 id="page-title">My bookings</h1><p>Your confirmed FlameGuard RP journeys.</p></div>
+      <div class="booking-filters" role="group" aria-label="Filter bookings">
+        <button class="booking-filter active" type="button" data-booking-filter="all" aria-pressed="true">All trips</button>
+        <button class="booking-filter" type="button" data-booking-filter="flight" aria-pressed="false">✈ Flights</button>
+        <button class="booking-filter" type="button" data-booking-filter="train" aria-pressed="false">🚆 Trains</button>
+      </div>
+    </section>
+
+    <section class="booking-page" aria-label="Booking list">
+      <div class="booking-note"><span class="booking-note-icon">ⓘ</span><span><strong>FlameGuard Roleplay</strong><br>These reservations are for your roleplay service. Fares use RP points; no real payment is collected.</span></div>
+      <div class="booking-list" id="booking-list" aria-live="polite"></div>
+      <p class="booking-empty" id="booking-empty">Sign in to see your reservations.</p>
+      <p class="booking-empty" id="booking-error" hidden></p>
+    </section>
+    <footer class="footer"><span>© 2026 FlameGuard Travel · RP air and rail</span><span><a href="support.html">Help centre</a> · <a href="flameguard.html">Dashboard</a></span></footer>
+  </main>
+  <div class="toast" id="booking-toast" role="status" aria-live="polite"></div>
+  <script src="js/i18n.js" defer></script>
+  <script src="js/tickets.js" defer></script>
+  <script src="js/bookings.js" defer></script>
+</body>
+</html>
+
+
